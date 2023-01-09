@@ -1,3 +1,14 @@
+import { ListOfPosts } from './components/ListOfPosts'
+import { Profile } from './components/Profile'
+import { SearchForm } from './components/SearchForm'
+import { HomeContainer } from './styles'
+
 export function Home() {
-  return <h1>Home</h1>
+  return (
+    <HomeContainer>
+      <Profile />
+      <SearchForm />
+      <ListOfPosts />
+    </HomeContainer>
+  )
 }
