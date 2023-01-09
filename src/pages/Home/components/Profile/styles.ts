@@ -15,6 +15,11 @@ export const ProfileContainer = styled.div`
     width: 9.25rem;
     border-radius: 8px;
   }
+
+  @media (max-width: 650px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `
 
 export const TitleWrapper = styled.header`
@@ -23,7 +28,6 @@ export const TitleWrapper = styled.header`
 
   a {
     height: 1rem;
-    text-decoration: none;
     display: flex;
     gap: 0.5rem;
 

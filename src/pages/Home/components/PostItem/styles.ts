@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 
 export const PostItemContainer = styled.a`
-  text-decoration: none;
-  color: inherit;
   padding: 2rem;
   background: ${(props) => props.theme['dark-blue-700']};
   border-radius: 10px;

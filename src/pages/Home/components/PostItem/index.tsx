@@ -2,7 +2,7 @@ import { PostItemContainer } from './styles'
 
 export function PostItem() {
   return (
-    <PostItemContainer href="http://www.google.com">
+    <PostItemContainer href="/post">
       <header>
         <h5>JavaScript data types and data structures </h5>
         <span>Há 1 dia</span>
