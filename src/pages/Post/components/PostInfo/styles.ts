@@ -46,5 +46,9 @@ export const InfoWrapper = styled.ul`
 
     font-size: 1rem;
     color: ${(props) => props.theme['dark-blue-300']};
+
+    span::first-letter {
+      text-transform: capitalize;
+    }
   }
 `

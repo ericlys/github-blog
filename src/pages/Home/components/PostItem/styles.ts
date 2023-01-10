@@ -26,6 +26,10 @@ export const PostItemContainer = styled.a`
     span {
       font-size: 0.875rem;
       color: ${(props) => props.theme['dark-blue-300']};
+
+      ::first-letter {
+        text-transform: capitalize;
+      }
     }
   }
 

@@ -1,3 +1,4 @@
+import { ReactMarkdown } from 'react-markdown/lib/react-markdown'
 import styled from 'styled-components'
 
 export const PostContainer = styled.div`
@@ -6,7 +7,7 @@ export const PostContainer = styled.div`
   margin: 0 auto;
 `
 
-export const Content = styled.main`
+export const Content = styled(ReactMarkdown)`
   padding: 2.5rem 2rem;
   color: ${(props) => props.theme['dark-blue-250']};
 
@@ -17,6 +18,10 @@ export const Content = styled.main`
   a {
     text-decoration: underline;
     color: ${(props) => props.theme['blue-700']};
+  }
+
+  img {
+    max-width: 100%;
   }
 
   @media (max-width: 900px) {

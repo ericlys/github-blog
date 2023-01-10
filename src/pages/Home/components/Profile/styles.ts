@@ -16,6 +16,10 @@ export const ProfileContainer = styled.div`
     border-radius: 8px;
   }
 
+  div {
+    flex: 1;
+  }
+
   @media (max-width: 650px) {
     flex-direction: column;
     align-items: center;

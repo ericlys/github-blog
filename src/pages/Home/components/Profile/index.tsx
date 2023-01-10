@@ -29,9 +29,7 @@ export function Profile() {
 
   return (
     <ProfileContainer>
-      <div>
-        <img src={profile?.avatar_url} alt="" />
-      </div>
+      <img src={profile?.avatar_url} alt="" />
       <div>
         <TitleWrapper>
           <h2>{profile?.name}</h2>
