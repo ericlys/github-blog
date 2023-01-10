@@ -8,6 +8,25 @@ export const SearchFormContainer = styled.form`
     justify-content: space-between;
     align-items: center;
 
+    @keyframes rotating {
+      from {
+        -webkit-transform: rotate(0deg);
+      }
+      to {
+        -webkit-transform: rotate(360deg);
+      }
+    }
+
+    div {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      svg {
+        animation: rotating 2s linear infinite;
+      }
+    }
+
     h4 {
       font-size: 1.125rem;
       font-weight: bold;

@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useState } from 'react'
+import { createContext, ReactNode, useEffect, useState } from 'react'
 import { api } from '../lib/axios'
 
 interface Post {
@@ -32,7 +32,12 @@ export function PostsProvider({ children }: PostsProviderProps) {
     })
     setPosts(response.data.items)
     setPostCount(response.data.total_count)
+    console.log(response.data.items)
   }
+
+  useEffect(() => {
+    fetchPosts()
+  }, [])
 
   return (
     <PostsContext.Provider
