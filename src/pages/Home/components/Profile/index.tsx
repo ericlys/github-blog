@@ -1,31 +1,46 @@
 import { ArrowSquareOut, Buildings, GithubLogo, Users } from 'phosphor-react'
+import { useEffect, useState } from 'react'
 import { useTheme } from 'styled-components'
+import { api } from '../../../../lib/axios'
 import { About, InfoWrapper, ProfileContainer, TitleWrapper } from './styles'
+
+interface ProfileType {
+  login: string
+  avatar_url: string
+  followers: number
+  bio: string
+  name: string
+  company: string
+  html_url: string
+}
 
 export function Profile() {
   const theme = useTheme()
+  const [profile, setProfile] = useState<ProfileType>()
+
+  const fetchProfile = async () => {
+    const response = await api.get('users/ericlys')
+    setProfile(response.data)
+  }
+
+  useEffect(() => {
+    fetchProfile()
+  }, [])
 
   return (
     <ProfileContainer>
       <div>
-        <img
-          src="https://avatars.githubusercontent.com/u/30418565?u=b785619b0627f125784593fe8c71ceb79ccbc59a&v=4"
-          alt=""
-        />
+        <img src={profile?.avatar_url} alt="" />
       </div>
       <div>
         <TitleWrapper>
-          <h2>Ericlys Moreira</h2>
-          <a href="">
+          <h2>{profile?.name}</h2>
+          <a href={profile?.html_url}>
             <span>GITHUB</span>
             <ArrowSquareOut size={14} color={theme['blue-700']} weight="bold" />
           </a>
         </TitleWrapper>
-        <About>
-          Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu
-          viverra massa quam dignissim aenean malesuada suscipit. Nunc, volutpat
-          pulvinar vel mass.
-        </About>
+        <About>{profile?.bio}</About>
 
         <InfoWrapper>
           <li>
@@ -34,15 +49,21 @@ export function Profile() {
               weight="fill"
               color={theme['dark-blue-400']}
             />
-            <span>ericlys</span>
+            <span>{profile?.login}</span>
           </li>
-          <li>
-            <Buildings size={18} weight="fill" color={theme['dark-blue-400']} />
-            <span>Rocketseat</span>
-          </li>
+          {!!profile?.company && (
+            <li>
+              <Buildings
+                size={18}
+                weight="fill"
+                color={theme['dark-blue-400']}
+              />
+              <span>{profile?.company}</span>
+            </li>
+          )}
           <li>
             <Users size={18} weight="fill" color={theme['dark-blue-400']} />
-            <span>32 seguidores</span>
+            <span>{profile?.followers} seguidores</span>
           </li>
         </InfoWrapper>
       </div>
